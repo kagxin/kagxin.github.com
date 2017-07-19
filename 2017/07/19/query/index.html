@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      mysql 数据库查询 | kangxin的博客 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="kagxin">
+    
+    
+
+    <meta name="description" content="select12345select 属性列表	from 表明和视图列表	[where 条件表达式1]	[group by 属性名1 [having 条件表达式2]]	[order by 属性名2 [asc|desc]] 1234create table employee(num int primary key, name varchar(50), age int, sex boolean, hom">
+<meta name="keywords" content="backend">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql 数据库查询 | kangxin的博客">
+<meta property="og:url" content="http://kagxin.github.io/2017/07/19/query/index.html">
+<meta property="og:site_name" content="kangxin的博客">
+<meta property="og:description" content="select12345select 属性列表	from 表明和视图列表	[where 条件表达式1]	[group by 属性名1 [having 条件表达式2]]	[order by 属性名2 [asc|desc]] 1234create table employee(num int primary key, name varchar(50), age int, sex boolean, hom">
+<meta property="og:locale" content="中文">
+<meta property="og:updated_time" content="2017-07-19T10:53:18.268Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql 数据库查询 | kangxin的博客">
+<meta name="twitter:description" content="select12345select 属性列表	from 表明和视图列表	[where 条件表达式1]	[group by 属性名1 [having 条件表达式2]]	[order by 属性名2 [asc|desc]] 1234create table employee(num int primary key, name varchar(50), age int, sex boolean, hom">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">kangxin的博客</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">mysql 数据库查询</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-07-19" class="post-meta__date date">2017-07-19</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="select"><a href="#select" class="headerlink" title="select"></a>select</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> 属性列表</div><div class="line">	<span class="keyword">from</span> 表明和视图列表</div><div class="line">	[<span class="keyword">where</span> 条件表达式<span class="number">1</span>]</div><div class="line">	[<span class="keyword">group</span> <span class="keyword">by</span> 属性名<span class="number">1</span> [<span class="keyword">having</span> 条件表达式<span class="number">2</span>]]</div><div class="line">	[<span class="keyword">order</span> <span class="keyword">by</span> 属性名<span class="number">2</span> [<span class="keyword">asc</span>|<span class="keyword">desc</span>]]</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> employee(<span class="keyword">num</span> <span class="built_in">int</span> primary <span class="keyword">key</span>, <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">50</span>), age <span class="built_in">int</span>, sex <span class="built_in">boolean</span>, homeaddr <span class="built_in">varchar</span>(<span class="number">80</span>));</div><div class="line"><span class="keyword">select</span> <span class="keyword">num</span>,<span class="keyword">name</span>,age,sex,homeaddr <span class="keyword">from</span> employee <span class="keyword">where</span> age&lt;<span class="number">26</span> <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">num</span> <span class="keyword">desc</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> d_id=<span class="number">1001</span>;</div></pre></td></tr></table></figure>
+<h3 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">查询条件</th>
+<th style="text-align:left">符号或关键字</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">比较</td>
+<td style="text-align:left">=, &lt;, &lt;=, &gt;, &gt;=, !=, &lt;&gt;, !&gt;, !&lt;</td>
+</tr>
+<tr>
+<td style="text-align:left">指定范围</td>
+<td style="text-align:left">between and, not between and</td>
+</tr>
+<tr>
+<td style="text-align:left">指定集合</td>
+<td style="text-align:left">in, not in</td>
+</tr>
+<tr>
+<td style="text-align:left">匹配字符</td>
+<td style="text-align:left">like, not like</td>
+</tr>
+<tr>
+<td style="text-align:left">是否为空值</td>
+<td style="text-align:left">is null, is not null</td>
+</tr>
+<tr>
+<td style="text-align:left">多个查询条件</td>
+<td style="text-align:left">and, or</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>like :<br>“%”可以代表任意长度的字符串，长度可以为0，例如a%b可以表示以a开头b结尾的任意字符串。<br>_ 只能表示单个任意字符。<br>like和= 都是大小写不区分。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[not] in (元素1，元素2，..., 元素n)</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> d_id <span class="keyword">in</span> (<span class="number">1001</span>, <span class="number">1004</span>);</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> <span class="keyword">num</span> <span class="keyword">not</span> <span class="keyword">in</span> (<span class="number">1</span>, <span class="number">2</span>);</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> age <span class="keyword">between</span> <span class="number">15</span> <span class="keyword">and</span> <span class="number">26</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> age <span class="keyword">not</span> <span class="keyword">between</span> <span class="number">15</span> <span class="keyword">and</span> <span class="number">26</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'aric'</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">is</span> <span class="literal">null</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> d_id=<span class="number">1001</span> <span class="keyword">and</span> sex=<span class="number">1</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> d_id&lt;<span class="number">1004</span> <span class="keyword">and</span> age&lt;<span class="number">26</span> <span class="keyword">and</span> sex=<span class="number">1</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> <span class="keyword">num</span> <span class="keyword">in</span> (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>) <span class="keyword">and</span> age <span class="keyword">between</span> <span class="number">15</span> <span class="keyword">and</span> <span class="number">25</span> <span class="keyword">and</span> homeaddr <span class="keyword">like</span> <span class="string">'%beijing%'</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> d_id=<span class="number">1001</span> <span class="keyword">or</span> sex=<span class="number">1</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> <span class="keyword">num</span> <span class="keyword">in</span> (<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>) <span class="keyword">and</span> age=<span class="number">25</span> <span class="keyword">or</span> sex=<span class="number">1</span>;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>and 和 or ，and结合的优先级高or。</p>
+</blockquote>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

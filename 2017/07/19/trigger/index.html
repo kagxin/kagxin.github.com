@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      mysql trigger触发器使用 | kangxin的博客 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="kagxin">
+    
+    
+
+    <meta name="description" content="创建触发器的一般语法 before 和 after参数指定了触发器执行时间，触发事件 insert、update、deletefor each row 表示任何一条记录上的操作满足触发事件都会触发该触发器。  12345678910111213141516171819202122232425262728293031323334353637383940414243create trigger 触发器">
+<meta name="keywords" content="backend">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql trigger触发器使用 | kangxin的博客">
+<meta property="og:url" content="http://kagxin.github.io/2017/07/19/trigger/index.html">
+<meta property="og:site_name" content="kangxin的博客">
+<meta property="og:description" content="创建触发器的一般语法 before 和 after参数指定了触发器执行时间，触发事件 insert、update、deletefor each row 表示任何一条记录上的操作满足触发事件都会触发该触发器。  12345678910111213141516171819202122232425262728293031323334353637383940414243create trigger 触发器">
+<meta property="og:locale" content="中文">
+<meta property="og:updated_time" content="2017-07-19T10:53:18.376Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql trigger触发器使用 | kangxin的博客">
+<meta name="twitter:description" content="创建触发器的一般语法 before 和 after参数指定了触发器执行时间，触发事件 insert、update、deletefor each row 表示任何一条记录上的操作满足触发事件都会触发该触发器。  12345678910111213141516171819202122232425262728293031323334353637383940414243create trigger 触发器">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">kangxin的博客</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">mysql trigger触发器使用</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-07-19" class="post-meta__date date">2017-07-19</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="创建触发器的一般语法"><a href="#创建触发器的一般语法" class="headerlink" title="创建触发器的一般语法"></a>创建触发器的一般语法</h3><blockquote>
+<p>before 和 after参数指定了触发器执行时间，<br>触发事件 insert、update、delete<br>for each row 表示任何一条记录上的操作满足触发事件都会触发该触发器。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">trigger</span> 触发器名称 <span class="keyword">before</span>|<span class="keyword">after</span> 触发事件</div><div class="line">	<span class="keyword">on</span> 表名 <span class="keyword">for</span> <span class="keyword">each</span> <span class="keyword">row</span></div><div class="line">	<span class="keyword">begin</span></div><div class="line">		执行语句</div><div class="line">	<span class="keyword">end</span>;</div><div class="line"></div><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> department (</div><div class="line">	d_id <span class="built_in">int</span>(<span class="number">4</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">unique</span> primary <span class="keyword">key</span>,</div><div class="line">	d_name <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">unique</span>,</div><div class="line">	<span class="keyword">function</span> <span class="built_in">varchar</span>(<span class="number">50</span>),</div><div class="line">	adress  <span class="built_in">varchar</span>(<span class="number">20</span>)</div><div class="line">);</div><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> trigger_time (exec_time <span class="keyword">time</span>, de_id <span class="built_in">int</span>(<span class="number">4</span>));</div><div class="line"></div><div class="line"><span class="keyword">create</span> <span class="keyword">trigger</span> dept_trig1 <span class="keyword">before</span> <span class="keyword">insert</span></div><div class="line">	<span class="keyword">on</span> department <span class="keyword">for</span> <span class="keyword">each</span> <span class="keyword">row</span></div><div class="line">    <span class="keyword">insert</span> <span class="keyword">into</span> trigger_time <span class="keyword">values</span>(<span class="keyword">now</span>());</div><div class="line"></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> department <span class="keyword">values</span>(<span class="number">1003</span>, <span class="string">'销售部'</span>, <span class="string">'负责产品销售'</span>, <span class="string">'1号楼'</span>);</div><div class="line"></div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> trigger_time;</div><div class="line">+<span class="comment">-----------+</span></div><div class="line">| exec_time |</div><div class="line">+<span class="comment">-----------+</span></div><div class="line">| 13:54:40  |</div><div class="line">+<span class="comment">-----------+</span></div><div class="line"></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> dept_trig2 <span class="keyword">after</span> <span class="keyword">delete</span></div><div class="line"><span class="keyword">ON</span> department <span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span></div><div class="line"><span class="keyword">BEGIN</span></div><div class="line">	<span class="keyword">insert</span> <span class="keyword">into</span> trigger_time <span class="keyword">values</span>(<span class="string">'21:01:01'</span>);</div><div class="line">	<span class="keyword">insert</span> <span class="keyword">into</span> trigger_time <span class="keyword">values</span>(<span class="string">'22:01:01'</span>);</div><div class="line"><span class="keyword">END</span>;</div><div class="line"></div><div class="line">delimiter &amp;&amp;</div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TRIGGER</span> dept_trig2 <span class="keyword">after</span> <span class="keyword">delete</span></div><div class="line"><span class="keyword">ON</span> department <span class="keyword">FOR</span> <span class="keyword">EACH</span> <span class="keyword">ROW</span></div><div class="line"><span class="keyword">BEGIN</span></div><div class="line">	<span class="keyword">insert</span> <span class="keyword">into</span> trigger_time <span class="keyword">values</span>(<span class="string">'21:01:01'</span>);</div><div class="line">	<span class="keyword">insert</span> <span class="keyword">into</span> trigger_time <span class="keyword">values</span>(<span class="string">'22:01:01'</span>);</div><div class="line"><span class="keyword">END</span></div><div class="line">&amp;&amp;</div><div class="line">delimiter;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>mysql中， 一个表在相同触发时间的相同触发事件，只能创建一个触发器<br>example: department 表中，触发事件insert，触发时间为after的触发器只能有一个。</p>
+</blockquote>
+<h3 id="new-old"><a href="#new-old" class="headerlink" title="new old"></a>new old</h3><blockquote>
+<p>对于INSERT语句,只有NEW是合法的；对于DELETE语句，只有OLD才合法；而UPDATE语句可以在和NEW以及OLD同时使用。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">trigger</span> tr1 <span class="keyword">before</span> <span class="keyword">insert</span></div><div class="line">	<span class="keyword">on</span> department <span class="keyword">for</span> <span class="keyword">each</span> <span class="keyword">row</span></div><div class="line">	<span class="keyword">insert</span> <span class="keyword">into</span> trigger_time (exec_time, de_id) <span class="keyword">values</span> (<span class="keyword">now</span>(), new.d_id);</div></pre></td></tr></table></figure>
+<h3 id="查看触发器"><a href="#查看触发器" class="headerlink" title="查看触发器"></a>查看触发器</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">triggers</span> \G</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> information_schema.triggers \G</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> information_schema.triggers <span class="keyword">where</span> trigger_name=<span class="string">'触发器名'</span></div></pre></td></tr></table></figure>
+<h3 id="删除触发器"><a href="#删除触发器" class="headerlink" title="删除触发器"></a>删除触发器</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">drop</span> trgger 触发器名;</div></pre></td></tr></table></figure>
+<h3 id="ERROR-1136-21S01-Column-count-doesn’t-match-value-count-at-row-1"><a href="#ERROR-1136-21S01-Column-count-doesn’t-match-value-count-at-row-1" class="headerlink" title="ERROR 1136 (21S01): Column count doesn’t match value count at row 1"></a><em>ERROR 1136 (21S01): Column count doesn’t match value count at row 1</em></h3><blockquote>
+<p><strong>这个错误的可能原因可能是由触发器造成的，错误可能不是当前表字段不符，<br>而是由于触发器导致的。<br>show triggers |G 查看与表关联的触发器，触发的插入事件中字段是否匹配。
+</strong></p>
+</blockquote>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
