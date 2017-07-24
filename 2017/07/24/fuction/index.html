@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      mysql 运算符 | kangxin的博客 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="kagxin">
+    
+    
+
+    <meta name="description" content="算术运算符1234567891011+, -, *, /, DIV, %, MODselect id-1, id*2, id%1, id/10 from products;+------+------+------+----------+| id-1 | id*2 | id%1 | id/10    |+------+------+------+----------+| 1002 | 2006 |">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql 运算符 | kangxin的博客">
+<meta property="og:url" content="http://kagxin.github.io/2017/07/24/fuction/index.html">
+<meta property="og:site_name" content="kangxin的博客">
+<meta property="og:description" content="算术运算符1234567891011+, -, *, /, DIV, %, MODselect id-1, id*2, id%1, id/10 from products;+------+------+------+----------+| id-1 | id*2 | id%1 | id/10    |+------+------+------+----------+| 1002 | 2006 |">
+<meta property="og:locale" content="中文">
+<meta property="og:updated_time" content="2017-07-24T07:34:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql 运算符 | kangxin的博客">
+<meta name="twitter:description" content="算术运算符1234567891011+, -, *, /, DIV, %, MODselect id-1, id*2, id%1, id/10 from products;+------+------+------+----------+| id-1 | id*2 | id%1 | id/10    |+------+------+------+----------+| 1002 | 2006 |">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">kangxin的博客</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">mysql 运算符</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-07-24" class="post-meta__date date">2017-07-24</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/mysql/">mysql</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">+, -, *, /, DIV, %, MOD</div><div class="line">select id-1, id*2, id%1, id/10 from products;</div><div class="line">+------+------+------+----------+</div><div class="line">| id-1 | id*2 | id%1 | id/10    |</div><div class="line">+------+------+------+----------+</div><div class="line">| 1002 | 2006 |    0 | 100.3000 |</div><div class="line">| 1003 | 2008 |    0 | 100.4000 |</div><div class="line">| 1000 | 2002 |    0 | 100.1000 |</div><div class="line">| 1001 | 2004 |    0 | 100.2000 |</div><div class="line">| 1004 | 2010 |    0 | 100.5000 |</div><div class="line">+------+------+------+----------+</div></pre></td></tr></table></figure>
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">=, &lt;&gt;或!=, &lt;=&gt;, &gt;, &gt;=, &lt;, &lt;=, is null, is not null, between and, in ,like, regexp</div><div class="line">mysql&gt; select id, id=1002 from products;</div><div class="line">+------+---------+</div><div class="line">| id   | id=1002 |</div><div class="line">+------+---------+</div><div class="line">| 1003 |       0 |</div><div class="line">| 1004 |       0 |</div><div class="line">| 1001 |       0 |</div><div class="line">| 1002 |       1 |</div><div class="line">| 1005 |       0 |</div><div class="line">+------+---------+</div><div class="line">mysql&gt; select name like 'ab' from products;</div><div class="line">+----------------+</div><div class="line">| name like 'ab' |</div><div class="line">+----------------+</div><div class="line">|              1 |</div><div class="line">|              0 |</div><div class="line">|              0 |</div><div class="line">|              0 |</div><div class="line">|              0 |</div><div class="line">+----------------+</div></pre></td></tr></table></figure>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">符号</th>
+<th style="text-align:left">名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&amp;&amp; 或者and</td>
+<td style="text-align:left">与</td>
+</tr>
+<tr>
+<td style="text-align:left">！或者not</td>
+<td style="text-align:left">非</td>
+</tr>
+<tr>
+<td style="text-align:left">OR</td>
+<td style="text-align:left">或</td>
+</tr>
+<tr>
+<td style="text-align:left">xor</td>
+<td style="text-align:left">异或</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="number">-1</span>&amp;&amp;<span class="number">2</span>&amp;&amp;<span class="number">3</span>, <span class="number">0</span>&amp;&amp;<span class="number">3</span>, <span class="number">0</span>&amp;&amp;<span class="literal">null</span>;</div><div class="line">+<span class="comment">----------+------+---------+</span></div><div class="line">| -1&amp;&amp;2&amp;&amp;3 | 0&amp;&amp;3 | 0&amp;&amp;null |</div><div class="line">+<span class="comment">----------+------+---------+</span></div><div class="line">|        1 |    0 |       0 |</div><div class="line">+<span class="comment">----------+------+---------+</span></div></pre></td></tr></table></figure>
+<h3 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h3><p>&amp; | ~   按位与， 按位或， 按位取反<br>^ &lt;&lt; &gt;&gt; 按位异或， 按位左移， 按位右移</p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
