@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      mysql ���ݿ���ѯ | kangxin的博客 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="kagxin">
+    
+    
+
+    <meta name="description" content="select12345select �����б�	from ��������ͼ�б�	[where ��������ʽ1]	[group by ������1 [having ��������ʽ2]]	[order by ������2 [asc|desc]] 1234create table employee(num int primary key, name varchar(50), age">
+<meta name="keywords" content="backend">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql ���ݿ���ѯ | kangxin的博客">
+<meta property="og:url" content="http://kagxin.github.io/2017/07/24/query/index.html">
+<meta property="og:site_name" content="kangxin的博客">
+<meta property="og:description" content="select12345select �����б�	from ��������ͼ�б�	[where ��������ʽ1]	[group by ������1 [having ��������ʽ2]]	[order by ������2 [asc|desc]] 1234create table employee(num int primary key, name varchar(50), age">
+<meta property="og:locale" content="中文">
+<meta property="og:updated_time" content="2017-07-24T03:31:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql ���ݿ���ѯ | kangxin的博客">
+<meta name="twitter:description" content="select12345select �����б�	from ��������ͼ�б�	[where ��������ʽ1]	[group by ������1 [having ��������ʽ2]]	[order by ������2 [asc|desc]] 1234create table employee(num int primary key, name varchar(50), age">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">kangxin的博客</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">mysql ���ݿ���ѯ</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-07-24" class="post-meta__date date">2017-07-24</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="select"><a href="#select" class="headerlink" title="select"></a>select</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> �����б�</div><div class="line">	<span class="keyword">from</span> ��������ͼ�б�</div><div class="line">	[<span class="keyword">where</span> ��������ʽ<span class="number">1</span>]</div><div class="line">	[<span class="keyword">group</span> <span class="keyword">by</span> ������<span class="number">1</span> [<span class="keyword">having</span> ��������ʽ<span class="number">2</span>]]</div><div class="line">	[<span class="keyword">order</span> <span class="keyword">by</span> ������<span class="number">2</span> [<span class="keyword">asc</span>|<span class="keyword">desc</span>]]</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> employee(<span class="keyword">num</span> <span class="built_in">int</span> primary <span class="keyword">key</span>, <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">50</span>), age <span class="built_in">int</span>, sex <span class="built_in">boolean</span>, homeaddr <span class="built_in">varchar</span>(<span class="number">80</span>));</div><div class="line"><span class="keyword">select</span> <span class="keyword">num</span>,<span class="keyword">name</span>,age,sex,homeaddr <span class="keyword">from</span> employee <span class="keyword">where</span> age&lt;<span class="number">26</span> <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">num</span> <span class="keyword">desc</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> d_id=<span class="number">1001</span>;</div></pre></td></tr></table></figure>
+<h3 id="������ѯ"><a href="#������ѯ" class="headerlink" title="������ѯ"></a>������ѯ</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">��ѯ����</th>
+<th style="text-align:left">���Ż��ؼ���</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">�Ƚ�</td>
+<td style="text-align:left">=, &lt;, &lt;=, &gt;, &gt;=, !=, &lt;&gt;, !&gt;, !&lt;</td>
+</tr>
+<tr>
+<td style="text-align:left">ָ����Χ</td>
+<td style="text-align:left">between and, not between and</td>
+</tr>
+<tr>
+<td style="text-align:left">ָ������</td>
+<td style="text-align:left">in, not in</td>
+</tr>
+<tr>
+<td style="text-align:left">ƥ���ַ�</td>
+<td style="text-align:left">like, not like</td>
+</tr>
+<tr>
+<td style="text-align:left">�Ƿ�Ϊ��ֵ</td>
+<td style="text-align:left">is null, is not null</td>
+</tr>
+<tr>
+<td style="text-align:left">������ѯ����</td>
+<td style="text-align:left">and, or</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>like :<br>“%”���Դ������ⳤ�ȵ��ַ��������ȿ���Ϊ0������a%b���Ա�ʾ��a��ͷb��β�������ַ�����<br>_ ֻ�ܱ�ʾ���������ַ���<br>like��= ���Ǵ�Сд�����֡�</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[not] in (Ԫ��1��Ԫ��2��..., Ԫ��n)</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> d_id <span class="keyword">in</span> (<span class="number">1001</span>, <span class="number">1004</span>);</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> <span class="keyword">num</span> <span class="keyword">not</span> <span class="keyword">in</span> (<span class="number">1</span>, <span class="number">2</span>);</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> age <span class="keyword">between</span> <span class="number">15</span> <span class="keyword">and</span> <span class="number">26</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> age <span class="keyword">not</span> <span class="keyword">between</span> <span class="number">15</span> <span class="keyword">and</span> <span class="number">26</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">like</span> <span class="string">'aric'</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> <span class="keyword">name</span> <span class="keyword">is</span> <span class="literal">null</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> d_id=<span class="number">1001</span> <span class="keyword">and</span> sex=<span class="number">1</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> d_id&lt;<span class="number">1004</span> <span class="keyword">and</span> age&lt;<span class="number">26</span> <span class="keyword">and</span> sex=<span class="number">1</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> <span class="keyword">num</span> <span class="keyword">in</span> (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>) <span class="keyword">and</span> age <span class="keyword">between</span> <span class="number">15</span> <span class="keyword">and</span> <span class="number">25</span> <span class="keyword">and</span> homeaddr <span class="keyword">like</span> <span class="string">'%beijing%'</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> d_id=<span class="number">1001</span> <span class="keyword">or</span> sex=<span class="number">1</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> <span class="keyword">num</span> <span class="keyword">in</span> (<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>) <span class="keyword">and</span> age=<span class="number">25</span> <span class="keyword">or</span> sex=<span class="number">1</span>;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>and �� or ��and���ϵ����ȼ���or��</p>
+</blockquote>
+<h3 id="������ѯ-1"><a href="#������ѯ-1" class="headerlink" title="������ѯ"></a>������ѯ</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">group by ������ [having ��������ʽ][with rollup]</div><div class="line">count() sum() avg() max() min()</div><div class="line"><span class="keyword">select</span> sex <span class="keyword">group_concat</span>(<span class="keyword">name</span>) <span class="keyword">from</span> employee <span class="keyword">group</span> <span class="keyword">by</span> sex;</div><div class="line"><span class="keyword">select</span> sex, <span class="keyword">count</span>(sex) <span class="keyword">from</span> employee <span class="keyword">group</span> <span class="keyword">by</span> sex;</div><div class="line"><span class="keyword">select</span> sex, <span class="keyword">count</span>(sex) <span class="keyword">from</span> employee <span class="keyword">group</span> <span class="keyword">by</span> sex <span class="keyword">having</span> <span class="keyword">count</span>(sex)&gt;<span class="number">3</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">group</span> <span class="keyword">by</span> d_id, sex;</div><div class="line"><span class="keyword">select</span> sex, <span class="keyword">count</span>(sex) <span class="keyword">from</span> employee <span class="keyword">group</span> <span class="keyword">by</span> sex <span class="keyword">with</span> <span class="keyword">rollup</span>;</div></pre></td></tr></table></figure>
+<h3 id="���ƽu��ѯ"><a href="#���ƽu��ѯ" class="headerlink" title="���ƽṹ��ѯ"></a>���ƽṹ��ѯ</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">limit</span> #<span class="keyword">offset</span>#, #<span class="keyword">size</span>#;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">in</span> (<span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">id</span> <span class="keyword">limit</span> #<span class="keyword">offset</span>#, #<span class="keyword">size</span>#);</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> <span class="keyword">id</span> &gt;= (<span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">id</span> <span class="keyword">limit</span> #<span class="keyword">offset</span>#, <span class="number">1</span>) <span class="keyword">limit</span> #<span class="keyword">size</span>#;</div></pre></td></tr></table></figure>
+<h3 id="�����Ӳ�ѯ"><a href="#�����Ӳ�ѯ" class="headerlink" title="�����Ӳ�ѯ"></a>�����Ӳ�ѯ</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> <span class="keyword">num</span>, <span class="keyword">name</span>, employee.d_id, age, sex, d_name, <span class="keyword">function</span> <span class="keyword">from</span> employee, department <span class="keyword">where</span> employee.d_id=department.id;</div></pre></td></tr></table></figure>
+<h3 id="������ѯ-2"><a href="#������ѯ-2" class="headerlink" title="������ѯ"></a>������ѯ</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">select �������б�</div><div class="line">	from ����1 left|right join ����2</div><div class="line">	on ����1.����1=����2.������2;</div><div class="line">### �����Ӳ�ѯ</div><div class="line">select num, name, employee.d_id, age, sex, d_name, function from employee left join department on employee.d_id=department.d_id;</div><div class="line">mysql&gt; select * from department;</div><div class="line">+------+--------+----------+--------+</div><div class="line">| d_id | d_name | function | adress |</div><div class="line">+------+--------+----------+--------+</div><div class="line">| 1001 | as     | asdf     | asdf   |</div><div class="line">| 1003 | ???    | ??????   | 1??    |</div><div class="line">| 1005 | asdf   | asdf     | asdf   |</div><div class="line">| 1006 | aasds  | asdf     | asdf   |</div><div class="line">+------+--------+----------+--------+</div><div class="line">mysql&gt; select * from employee;</div><div class="line">+-------+------+----------+------+------+------------+</div><div class="line">| num   | d_id | name     | age  | sex  | homeaddr   |</div><div class="line">+-------+------+----------+------+------+------------+</div><div class="line">|     1 | 1000 | ??       |   26 |    1 | ???        |</div><div class="line">|     2 | 1002 | lishi    |   24 |    0 | biejingshi |</div><div class="line">|     3 | 1003 | wangwu   |   25 |    0 | hubei      |</div><div class="line">|     4 | 1001 | aric     |   15 |    0 | england    |</div><div class="line">|     5 | 1005 | xiaogang |   24 |    1 | shanghai   |</div><div class="line">|     6 | 1006 | xiaohong |   24 |    1 | jiading    |</div><div class="line">| 10001 | 1004 | xiaoming |   18 |    0 | jiading    |</div><div class="line">+-------+------+----------+------+------+------------+</div><div class="line">mysql&gt; select num, name, employee.d_id, age, sex, d_name, function from employee</div><div class="line"> left join department on employee.d_id=department.d_id;</div><div class="line">+-------+----------+------+------+------+--------+----------+</div><div class="line">| num   | name     | d_id | age  | sex  | d_name | function |</div><div class="line">+-------+----------+------+------+------+--------+----------+</div><div class="line">|     1 | ??       | 1000 |   26 |    1 | NULL   | NULL     |</div><div class="line">|     2 | lishi    | 1002 |   24 |    0 | NULL   | NULL     |</div><div class="line">|     3 | wangwu   | 1003 |   25 |    0 | ???    | ??????   |</div><div class="line">|     4 | aric     | 1001 |   15 |    0 | as     | asdf     |</div><div class="line">|     5 | xiaogang | 1005 |   24 |    1 | asdf   | asdf     |</div><div class="line">|     6 | xiaohong | 1006 |   24 |    1 | aasds  | asdf     |</div><div class="line">| 10001 | xiaoming | 1004 |   18 |    0 | NULL   | NULL     |</div><div class="line">+-------+----------+------+------+------+--------+----------+</div><div class="line">### �����Ӳ�ѯ</div><div class="line">mysql&gt; select num, name, age, sex, department.d_id, d_name, function from employ</div><div class="line">ee right join department on employee.d_id=department.d_id;</div><div class="line">+------+----------+------+------+------+--------+----------+</div><div class="line">| num  | name     | age  | sex  | d_id | d_name | function |</div><div class="line">+------+----------+------+------+------+--------+----------+</div><div class="line">|    4 | aric     |   15 |    0 | 1001 | as     | asdf     |</div><div class="line">|    3 | wangwu   |   25 |    0 | 1003 | ???    | ??????   |</div><div class="line">|    5 | xiaogang |   24 |    1 | 1005 | asdf   | asdf     |</div><div class="line">|    6 | xiaohong |   24 |    1 | 1006 | aasds  | asdf     |</div><div class="line">+------+----------+------+------+------+--------+----------+</div></pre></td></tr></table></figure>
+<h3 id="�Ӳ�ѯ"><a href="#�Ӳ�ѯ" class="headerlink" title="�Ӳ�ѯ"></a>�Ӳ�ѯ</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">in, not in, any, all, exists, not exists</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee d_id <span class="keyword">in</span> (<span class="keyword">select</span> d_id <span class="keyword">from</span> department);</div><div class="line"><span class="keyword">select</span> <span class="keyword">id</span>, <span class="keyword">name</span>, score <span class="keyword">from</span> computer_stu <span class="keyword">where</span> score &gt;= (<span class="keyword">select</span> score <span class="keyword">from</span> scholarship <span class="keyword">where</span> <span class="keyword">level</span>=<span class="number">1</span>);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>exists �ؼ��ֱ�ʾ���ڣ� �����ڲ���ѯ���䷵�����ݣ��ͷ���true��</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> employee <span class="keyword">where</span> <span class="keyword">exists</span> (<span class="keyword">select</span> d_name <span class="keyword">from</span> department <span class="keyword">where</span> d_id=<span class="number">1003</span>);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>any �ؼ��ֱ�ʾ����������һ������ʹ��any�ؼ���ʱ�� ֻҪ�����ڲ���ѯ���䷵�صĽ����е��κ�һ����<br>�Ϳ���ͨ����������ִ��������ѯ���䡣any �ؼ���ͨ�����Ƚ�������һ��ʹ�á� &gt;any ��ʾ�����κ�һ��ֵ��<br>=any��ʾ�����κ�һ��ֵ��</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> computer_stu <span class="keyword">where</span> score &gt;= <span class="keyword">any</span>(<span class="keyword">select</span> score <span class="keyword">from</span> scholarship);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>all �ؼ��ֱ�ʾ��������������ʹ��all�ؼ���ʱ��ֻ�������ڲ���ѯ���䷵�ص����н�����<br>�ſ���ִ��������ѯ���䡣 all�ؼ�Ҳ�������Ƚ�������һ��ʹ�á� &gt;all ��ʾ��������ֵ��&lt;all��ʾС������ֵ��</p>
+</blockquote>
+<h3 id="�ϲ���ѯ"><a href="#�ϲ���ѯ" class="headerlink" title="�ϲ���ѯ"></a>�ϲ���ѯ</h3><blockquote>
+<p>union�ؼ��֣����ݿ�ϵͳ�Ὣ���еĲ�ѯ�����ϲ���һ����Ȼ��ȥ������ͬ�ļ�¼��<br>union all �ؼ��֣�ֻ�ǽ���ѯ����ֱ�Ӻϲ���һ����û��������ͬ�ļ�¼��</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> ����<span class="number">1</span></div><div class="line">    <span class="keyword">union</span> | <span class="keyword">union</span> all</div><div class="line"><span class="keyword">select</span> ����<span class="number">2</span></div><div class="line">    <span class="keyword">union</span> | <span class="keyword">union</span> all</div><div class="line"><span class="keyword">select</span> ����n;</div><div class="line"></div><div class="line"><span class="keyword">select</span> d_id <span class="keyword">from</span> department</div><div class="line">    <span class="keyword">union</span></div><div class="line"><span class="keyword">select</span> d_id <span class="keyword">from</span> employee;</div><div class="line">+<span class="comment">------+</span></div><div class="line">| d_id |</div><div class="line">+<span class="comment">------+</span></div><div class="line">| 1001 |</div><div class="line">| 1003 |</div><div class="line">| 1005 |</div><div class="line">| 1006 |</div><div class="line">| 1008 |</div><div class="line">| 1000 |</div><div class="line">| 1002 |</div><div class="line">| 1004 |</div><div class="line">+<span class="comment">------+</span></div></pre></td></tr></table></figure>
+<h3 id="Ϊ�����ֶ�ȡ����"><a href="#Ϊ�����ֶ�ȡ����" class="headerlink" title="Ϊ�����ֶ�ȡ����"></a>Ϊ�����ֶ�ȡ����</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">���� ���ı���</div><div class="line">������ [AS] ����</div><div class="line"></div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> department d <span class="keyword">where</span> d.d_id = <span class="number">1001</span>;</div><div class="line"><span class="keyword">select</span> d_id <span class="keyword">as</span> department_id, d_name <span class="keyword">as</span> department_name <span class="keyword">from</span> department;</div></pre></td></tr></table></figure>
+<h3 id="������ѯ-3"><a href="#������ѯ-3" class="headerlink" title="������ѯ"></a>������ѯ</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">������ regexp 'ƥ�䷽ʽ'</div><div class="line">select * from info where name regexp '^L';</div><div class="line">mysql&gt; select * from employee where name regexp '^xiao';</div><div class="line">+-------+------+----------+------+------+----------+</div><div class="line">| num   | d_id | name     | age  | sex  | homeaddr |</div><div class="line">+-------+------+----------+------+------+----------+</div><div class="line">|     5 | 1005 | xiaogang |   24 |    1 | shanghai |</div><div class="line">|     6 | 1006 | xiaohong |   24 |    1 | jiading  |</div><div class="line">| 10001 | 1004 | xiaoming |   18 |    0 | jiading  |</div><div class="line">+-------+------+----------+------+------+----------+</div></pre></td></tr></table></figure>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
