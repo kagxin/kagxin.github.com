@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      mysql 关系设计 | kangxin的博客 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="kagxin">
+    
+    
+
+    <meta name="description" content="onetoone 一对一的实现是在其中的一个表上建立外键指向另一个表，同时在该外键列上建立唯一约束。如下：Husband and wife  1234567891011121314151617181920212223242526create table wife(	/* 创建wife表 ， id为自增主键*/	id int primary key auto_increment,	num int u">
+<meta name="keywords" content="mysql, onetoone, onetomany, manytomany">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql 关系设计 | kangxin的博客">
+<meta property="og:url" content="http://kagxin.github.io/2017/07/27/relationship/index.html">
+<meta property="og:site_name" content="kangxin的博客">
+<meta property="og:description" content="onetoone 一对一的实现是在其中的一个表上建立外键指向另一个表，同时在该外键列上建立唯一约束。如下：Husband and wife  1234567891011121314151617181920212223242526create table wife(	/* 创建wife表 ， id为自增主键*/	id int primary key auto_increment,	num int u">
+<meta property="og:locale" content="中文">
+<meta property="og:updated_time" content="2017-07-27T10:55:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mysql 关系设计 | kangxin的博客">
+<meta name="twitter:description" content="onetoone 一对一的实现是在其中的一个表上建立外键指向另一个表，同时在该外键列上建立唯一约束。如下：Husband and wife  1234567891011121314151617181920212223242526create table wife(	/* 创建wife表 ， id为自增主键*/	id int primary key auto_increment,	num int u">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">kangxin的博客</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">mysql 关系设计</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-07-27" class="post-meta__date date">2017-07-27</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/mysql-onetoone-onetomany-manytomany/">mysql, onetoone, onetomany, manytomany</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="onetoone"><a href="#onetoone" class="headerlink" title="onetoone"></a>onetoone</h3><blockquote>
+<p>一对一的实现是在其中的一个表上建立外键指向另一个表，同时在该外键列上建立唯一约束。<br>如下：Husband and wife</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> wife(</div><div class="line">	<span class="comment">/* 创建wife表 ， id为自增主键*/</span></div><div class="line">	<span class="keyword">id</span> <span class="built_in">int</span> primary <span class="keyword">key</span> auto_increment,</div><div class="line">	<span class="keyword">num</span> <span class="built_in">int</span> <span class="keyword">unique</span></div><div class="line">);</div><div class="line"><span class="comment">/* 创建husband表 ， id为自增主键， wife_id 为指向wife的外键，切有唯一性约束，保证一对一关系。*/</span></div><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> husband(</div><div class="line">	<span class="keyword">id</span> <span class="built_in">int</span> primary <span class="keyword">key</span> auto_increment,</div><div class="line">	<span class="keyword">num</span> <span class="built_in">int</span> <span class="keyword">unique</span>,</div><div class="line">	<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">unique</span>,</div><div class="line">	age <span class="built_in">int</span>,</div><div class="line">	wife_id <span class="built_in">int</span> <span class="keyword">unique</span>,</div><div class="line">	<span class="keyword">constraint</span> wife_fk foreign <span class="keyword">key</span> (wife_id) <span class="keyword">references</span> wife(<span class="keyword">id</span>)</div><div class="line">);</div><div class="line"></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> wife <span class="keyword">values</span> (<span class="literal">null</span>, <span class="number">1000</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> wife <span class="keyword">values</span> (<span class="literal">null</span>, <span class="number">1001</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> wife <span class="keyword">values</span> (<span class="literal">null</span>, <span class="number">1002</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> husband <span class="keyword">values</span> (<span class="literal">null</span>, <span class="number">1000</span>, <span class="string">'xiaoming'</span>, <span class="number">23</span>, <span class="number">1</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> husband <span class="keyword">values</span>(<span class="literal">null</span>, <span class="number">1001</span>, <span class="string">'xiaogang'</span>, <span class="number">24</span>, <span class="number">1</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> husband <span class="keyword">values</span>(<span class="literal">null</span>, <span class="number">1001</span>, <span class="string">'xiaoli'</span>, <span class="number">24</span>, <span class="number">2</span>);</div><div class="line"></div><div class="line"><span class="comment">/*知道husband的name查找其一对一关系的wife的num*/</span></div><div class="line"><span class="keyword">select</span> w.num <span class="keyword">from</span> husband h <span class="keyword">left</span> <span class="keyword">join</span> wife w <span class="keyword">on</span> h.wife_id=w.id <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">'xiaoming'</span>;</div><div class="line"><span class="comment">/*知道wife的um查找其一对一关系的husband的name*/</span></div><div class="line"><span class="keyword">select</span> h.name <span class="keyword">from</span> wife w <span class="keyword">left</span> <span class="keyword">join</span> husband h <span class="keyword">on</span> h.wife_id=w.id <span class="keyword">where</span> w.num=<span class="number">1000</span>;</div></pre></td></tr></table></figure>
+<h3 id="onetomany"><a href="#onetomany" class="headerlink" title="onetomany"></a>onetomany</h3><blockquote>
+<p>一对多的关系的实现是在其中的一个表上建立外键指向另一个表，同时在该外键列没有唯一性约束。<br>如下： hobby and student.<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> hobby(</div><div class="line">	<span class="keyword">num</span> <span class="built_in">int</span> primary <span class="keyword">key</span>,</div><div class="line">	<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">unique</span></div><div class="line">);</div><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> student(</div><div class="line">	<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">50</span>) primary <span class="keyword">key</span>,</div><div class="line">	hobby_num <span class="built_in">int</span>,</div><div class="line">	<span class="keyword">constraint</span> hobby_fk foreign <span class="keyword">key</span> (hobby_num) <span class="keyword">references</span> hobby(<span class="keyword">num</span>)</div><div class="line">);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> hobby <span class="keyword">values</span>(<span class="number">1001</span>, <span class="string">'footbal'</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> hobby <span class="keyword">values</span> (<span class="number">1002</span>, <span class="string">'pingpongball'</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> hobby <span class="keyword">values</span> (<span class="number">1003</span>, <span class="string">'basketball'</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> student <span class="keyword">values</span>(<span class="string">'xiaoming'</span>, <span class="number">1001</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> student <span class="keyword">values</span> (<span class="string">'xiaogang'</span>, <span class="number">1001</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> student <span class="keyword">values</span> (<span class="string">'xiaohong'</span>, <span class="number">1002</span>);</div><div class="line"></div><div class="line"><span class="comment">/*查出指定学生的爱好*/</span></div><div class="line"><span class="keyword">select</span> h.name <span class="keyword">from</span> hobby h <span class="keyword">left</span> <span class="keyword">join</span> student s <span class="keyword">on</span> h.num=s.hobby_num <span class="keyword">where</span> s.name=<span class="string">'xiaoming'</span>;</div><div class="line"><span class="comment">/*查出指定爱好的所有学生*/</span></div><div class="line"><span class="keyword">select</span> s.name <span class="keyword">from</span> student s <span class="keyword">left</span> <span class="keyword">join</span> hobby h <span class="keyword">on</span> h.num=s.hobby_num <span class="keyword">where</span> h.name=<span class="string">'footbal'</span>;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="manytomany"><a href="#manytomany" class="headerlink" title="manytomany"></a>manytomany</h3><blockquote>
+<p>多对多关系，创建一个中间表，保存两个表的主键。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> people(</div><div class="line">	<span class="keyword">id</span> <span class="built_in">int</span> primary <span class="keyword">key</span> auto_increment,</div><div class="line">	<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">unique</span></div><div class="line">);</div><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> recipe(</div><div class="line">	<span class="keyword">id</span> <span class="built_in">int</span> primary <span class="keyword">key</span> auto_increment,</div><div class="line">	dish_name <span class="built_in">varchar</span>(<span class="number">50</span>)</div><div class="line">);</div><div class="line"><span class="comment">/*创建一个中间表，两个外键指向两个表的主键。*/</span></div><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> peo_rec(</div><div class="line">	<span class="keyword">id</span> <span class="built_in">int</span> primary <span class="keyword">key</span> auto_increment,</div><div class="line">	people_id <span class="built_in">int</span>,</div><div class="line">	recipe_id <span class="built_in">int</span>,</div><div class="line">	<span class="keyword">constraint</span> people_fk foreign <span class="keyword">key</span> (people_id) <span class="keyword">references</span> people(<span class="keyword">id</span>),</div><div class="line">	<span class="keyword">constraint</span> recipe_fk foreign <span class="keyword">key</span> (recipe_id) <span class="keyword">references</span> recipe(<span class="keyword">id</span>)</div><div class="line">);</div><div class="line"></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> people <span class="keyword">values</span>(<span class="literal">null</span>, <span class="string">'xiaoming'</span>), (<span class="literal">null</span>, <span class="string">'xiaogang'</span>), (<span class="literal">null</span>, <span class="string">'xiaohong'</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> recipe <span class="keyword">values</span>(<span class="literal">null</span>, <span class="string">'hongsaonou'</span>), (<span class="literal">null</span>, <span class="string">'toudousi'</span>), (<span class="literal">null</span>, <span class="string">'shuancaiyu'</span>);</div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> peo_rec <span class="keyword">values</span>(<span class="literal">null</span>, <span class="number">1</span>, <span class="number">1</span>), (<span class="literal">null</span>, <span class="number">1</span>, <span class="number">2</span>), (<span class="literal">null</span>, <span class="number">1</span>,<span class="number">3</span>), (<span class="literal">null</span>, <span class="number">2</span>, <span class="number">2</span>),(<span class="literal">null</span>, <span class="number">2</span>, <span class="number">3</span>);</div><div class="line"></div><div class="line"><span class="comment">/*查出xiaoming的所有recipe*/</span></div><div class="line"><span class="keyword">select</span> r.dish_name <span class="keyword">from</span> recipe r <span class="keyword">left</span> <span class="keyword">join</span> peo_rec pr <span class="keyword">on</span> r.id=pr.recipe_id <span class="keyword">left</span> <span class="keyword">join</span> people p <span class="keyword">on</span> p.id=pr.people_id <span class="keyword">where</span> p.name=<span class="string">'xiaoming'</span>;</div><div class="line"><span class="comment">/*查出hongsaonou的所有dish_name*/</span></div><div class="line"><span class="keyword">select</span> p.name <span class="keyword">from</span> people p <span class="keyword">left</span> <span class="keyword">join</span> peo_rec pr <span class="keyword">on</span> p.id=pr.recipe_id <span class="keyword">left</span> <span class="keyword">join</span> recipe r <span class="keyword">on</span> r.id=pr.recipe_id <span class="keyword">where</span> r.dish_name=<span class="string">'hongsaonou'</span>;</div></pre></td></tr></table></figure>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
