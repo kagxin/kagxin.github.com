@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      django orm 和 sqlalchemy的关系设计 | kangxin的博客 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="kagxin">
+    
+    
+
+    <meta name="description" content="django orm onetoone django orm中一对一关系的例子：  1234567891011121314151617181920212223242526272829class Wife(models.Model):	num = models.IntegerField(unique=True)	def __str__(self):		return str(self.num)clas">
+<meta name="keywords" content="orm, onetoone, onetomany, manytomany, mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="django orm 和 sqlalchemy的关系设计 | kangxin的博客">
+<meta property="og:url" content="http://kagxin.github.io/2017/07/28/orm/index.html">
+<meta property="og:site_name" content="kangxin的博客">
+<meta property="og:description" content="django orm onetoone django orm中一对一关系的例子：  1234567891011121314151617181920212223242526272829class Wife(models.Model):	num = models.IntegerField(unique=True)	def __str__(self):		return str(self.num)clas">
+<meta property="og:locale" content="中文">
+<meta property="og:updated_time" content="2017-07-28T06:36:13.733Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="django orm 和 sqlalchemy的关系设计 | kangxin的博客">
+<meta name="twitter:description" content="django orm onetoone django orm中一对一关系的例子：  1234567891011121314151617181920212223242526272829class Wife(models.Model):	num = models.IntegerField(unique=True)	def __str__(self):		return str(self.num)clas">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">kangxin的博客</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">django orm 和 sqlalchemy的关系设计</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-07-28" class="post-meta__date date">2017-07-28</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/orm-onetoone-onetomany-manytomany-mysql/">orm, onetoone, onetomany, manytomany, mysql</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="django-orm-onetoone"><a href="#django-orm-onetoone" class="headerlink" title="django orm onetoone"></a>django orm onetoone</h3><blockquote>
+<p>django orm中一对一关系的例子：</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Wife</span><span class="params">(models.Model)</span>:</span></div><div class="line">	num = models.IntegerField(unique=<span class="keyword">True</span>)</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line">		<span class="keyword">return</span> str(self.num)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Husband</span><span class="params">(models.Model)</span>:</span></div><div class="line">	num = models.IntegerField(unique=<span class="keyword">True</span>)</div><div class="line">	name = models.CharField(max_length=<span class="number">50</span>, unique=<span class="keyword">True</span>)</div><div class="line">	age = models.IntegerField()</div><div class="line">	wife = models.OneToOneField(Wife, related_name=<span class="string">'husband'</span>)</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.name</div><div class="line"></div><div class="line">Wife.objects.create(num=<span class="number">1000</span>)</div><div class="line">Wife.objects.create(num=<span class="number">1001</span>)</div><div class="line">Wife.objects.create(num=<span class="number">1002</span>)</div><div class="line">Husband.objects.create(num=<span class="number">1000</span>, name=<span class="string">'xiaoming'</span>, age=<span class="number">23</span>, wife=Wife.objects.get(num=<span class="number">1000</span>))</div><div class="line">Husband.objects.create(num=<span class="number">1001</span>, name=<span class="string">'xiaogang'</span>, age=<span class="number">23</span>, wife=Wife.objects.get(num=<span class="number">1001</span>))</div><div class="line">Husband.objects.create(num=<span class="number">1002</span>, name=<span class="string">'xiaoxiaoli'</span>, age=<span class="number">23</span>, wife=Wife.objects.get(num=<span class="number">1002</span>))</div><div class="line"></div><div class="line"><span class="comment">#知道husband的name查找其一对一关系的wife的num</span></div><div class="line">wife = Wife.objects.get(husband__name=<span class="string">'xiaoming'</span>)</div><div class="line">wife.num</div><div class="line"></div><div class="line"><span class="comment">#知道wife的um查找其一对一关系的husband的name</span></div><div class="line">husband = Husband.objects.get(wife__num=<span class="number">1000</span>)</div><div class="line">husband.name</div></pre></td></tr></table></figure>
+<h3 id="django-orm-onetomany"><a href="#django-orm-onetomany" class="headerlink" title="django orm onetomany"></a>django orm onetomany</h3><blockquote>
+<p>django orm 中一对多的例子:假定一个学生只能有一个爱好。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Hobby</span><span class="params">(models.Model)</span>:</span></div><div class="line">    num = models.IntegerField(unique=<span class="keyword">True</span>)</div><div class="line">    name = models.CharField(max_length=<span class="number">50</span>, unique=<span class="keyword">True</span>)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.name</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(models.Model)</span>:</span></div><div class="line">    name = models.CharField(max_length=<span class="number">50</span>, unique=<span class="keyword">True</span>)</div><div class="line">    hobby = models.ForeignKey(Hobby, related_name=<span class="string">'students'</span>)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.name</div><div class="line"></div><div class="line">Hobby.objects.create(num=<span class="number">1001</span>, name=<span class="string">'footbal'</span>)</div><div class="line">Hobby.objects.create(num=<span class="number">1002</span>, name=<span class="string">'pingpongball'</span>)</div><div class="line">Hobby.objects.create(num=<span class="number">1003</span>, name=<span class="string">'basketball'</span>)</div><div class="line">Student.objects.create(name=<span class="string">'xiaoming'</span>, hobby=Hobby.objects.get(num=<span class="number">1001</span>));</div><div class="line">Student.objects.create(name=<span class="string">'xiaogang'</span>, hobby=Hobby.objects.get(num=<span class="number">1001</span>));</div><div class="line">Student.objects.create(name=<span class="string">'xiaohong'</span>, hobby=Hobby.objects.get(num=<span class="number">1002</span>));</div><div class="line"></div><div class="line"><span class="comment"># 查出所有爱好basketball的学生</span></div><div class="line">students = Student.objects.filter(hobby__name=<span class="string">'basketball'</span>)</div></pre></td></tr></table></figure>
+<h3 id="django-orm-manytomany"><a href="#django-orm-manytomany" class="headerlink" title="django orm manytomany"></a>django orm manytomany</h3><blockquote>
+<p>django orm 多对多的例子</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Recipe</span><span class="params">(models.Model)</span>:</span></div><div class="line">    dish_name = models.CharField(max_length=<span class="number">50</span>)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.dish_name</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span><span class="params">(models.Model)</span>:</span></div><div class="line">    name = models.CharField(max_length=<span class="number">50</span>)</div><div class="line">    dishs = models.ManyToManyField(Recipe, related_name=<span class="string">'people'</span>)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.name</div></pre></td></tr></table></figure>
+<h3 id="sqlalchemy-onetoone-onetomany-manytomany"><a href="#sqlalchemy-onetoone-onetomany-manytomany" class="headerlink" title="sqlalchemy onetoone, onetomany, manytomany"></a>sqlalchemy onetoone, onetomany, manytomany</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#coding:utf8</span></div><div class="line"><span class="keyword">from</span> sqlalchemy <span class="keyword">import</span> Column, String, create_engine, Integer, ForeignKey, Table</div><div class="line"><span class="keyword">from</span> sqlalchemy.orm <span class="keyword">import</span> sessionmaker, relationship</div><div class="line"><span class="keyword">from</span> sqlalchemy.ext.declarative <span class="keyword">import</span> declarative_base</div><div class="line"><span class="comment"># 创建对象的基类:</span></div><div class="line">Base = declarative_base()</div><div class="line"></div><div class="line"><span class="comment"># wife husband onetoone</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Wife</span><span class="params">(Base)</span>:</span></div><div class="line">    __tablename__ = <span class="string">'wife'</span></div><div class="line"></div><div class="line">    id = Column(Integer, primary_key=<span class="keyword">True</span>)</div><div class="line">    num = Column(Integer, unique=<span class="keyword">True</span>)</div><div class="line"></div><div class="line">    husband = relationship(<span class="string">'Husband'</span>, uselist=<span class="keyword">False</span>)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Husband</span><span class="params">(Base)</span>:</span></div><div class="line">    __tablename__=<span class="string">'husband'</span></div><div class="line"></div><div class="line">    id = Column(Integer, primary_key=<span class="keyword">True</span>)</div><div class="line">    num = Column(Integer, unique=<span class="keyword">True</span>)</div><div class="line">    name = Column(String(<span class="number">50</span>), unique=<span class="keyword">True</span>)</div><div class="line">    age = Column(Integer)</div><div class="line">    wife_id = Column(Integer, ForeignKey(<span class="string">'wife.id'</span>))</div><div class="line"></div><div class="line">    wife = relationship(<span class="string">'Wife'</span>)</div><div class="line"></div><div class="line"><span class="comment"># hobby和student  onetomany 假定每个学生有一个爱好</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Hobby</span><span class="params">(Base)</span>:</span></div><div class="line">    __tablename__ = <span class="string">'hobby'</span></div><div class="line"></div><div class="line">    name = Column(String(<span class="number">50</span>), unique=<span class="keyword">True</span>)</div><div class="line">    num = Column(Integer, primary_key=<span class="keyword">True</span>)</div><div class="line"></div><div class="line">    students = relationship(<span class="string">'Student'</span>)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(Base)</span>:</span></div><div class="line">    __tablename__ = <span class="string">'student'</span></div><div class="line"></div><div class="line">    name = Column(String(<span class="number">50</span>), primary_key=<span class="keyword">True</span>)</div><div class="line">    hobby_num = Column(Integer, ForeignKey(<span class="string">'hobby.num'</span>))</div><div class="line"></div><div class="line">    hobby = relationship(<span class="string">'Hobby'</span>)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># People 和 Recipe manytomany 创建一个中间表people_recipe</span></div><div class="line">people_recipe_table = Table(<span class="string">"people_recipe"</span>, Base.metadata,</div><div class="line">                             Column(<span class="string">'people_id'</span>, Integer, ForeignKey(<span class="string">'people.id'</span>)),</div><div class="line">                             Column(<span class="string">'recipe_id'</span>, Integer, ForeignKey(<span class="string">'recipe.id'</span>))</div><div class="line">                            )</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span><span class="params">(Base)</span>:</span></div><div class="line">    __tablename__ = <span class="string">'people'</span></div><div class="line"></div><div class="line">    id = Column(Integer, primary_key=<span class="keyword">True</span>)</div><div class="line">    name = Column(String(<span class="number">50</span>), unique=<span class="keyword">True</span>)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Recipe</span><span class="params">(Base)</span>:</span></div><div class="line">    __tablename__ = <span class="string">'recipe'</span></div><div class="line"></div><div class="line">    id = Column(Integer, primary_key=<span class="keyword">True</span>)</div><div class="line">    dish_name = Column(String(<span class="number">50</span>))</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 初始化数据库连接:</span></div><div class="line">engine = create_engine(<span class="string">'mysql+mysqldb://root:root@192.168.1.2:3306/test'</span>)</div><div class="line">Base.metadata.bind = engine</div><div class="line">Base.metadata.create_all()</div><div class="line"><span class="comment"># 创建DBSession类型:</span></div><div class="line">DBSession = sessionmaker(bind=engine)</div><div class="line"></div><div class="line">session = DBSession()</div><div class="line"><span class="comment">#查询wife.num 根据Husband.name</span></div><div class="line">s = session.query(Wife.num).join(Husband).filter(Husband.name==<span class="string">'xiaoming'</span>);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>1、在orm关系定义方面：django的orm抽象程度更高，所需要写的代码更少一些在onetoone和onetomany中，不需要添加<br>额外的relationship,manytomany中也不需要显式的定义第三张表格。sqlalchemy的关系更加的明显。<br>2、查询语句方面：django的orm抽象程序较高，多表连接查询通过__双下划线表示层级关系，但查询结果是针对单个model。完全看不到sql的影子。<br>sqlalchemy的查询更加灵活可以看到sql的影子，可以一次查询多个字段和对象，更加的灵活。</p>
+</blockquote>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
